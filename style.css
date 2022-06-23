@@ -1,41 +1,98 @@
-*{
+* {
     box-sizing: border-box;
     font-size: 20px;
     padding: 0;
     margin:0;
 }
-body, html{
+body, html {
     font-family: 'roboto', sans-serif;
     font-size: 1rem;
-    font-weight: normal;
+    font-weight: 300;
     line-height: 1.5;
 
 }
-h1{
+h1 {
     font-family: 'Roboto Condensed', sans-serif ;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 1.8em;
 }
-p{
+p {
     font-family: 'roboto', sans-serif;
     font-size: 0.8em;
     line-height: 1.5em;
     color: #313131;
 }
-ul{
+ul {
     list-style: none;
 }
-a{
+a {
     text-decoration: none;
 }
-header{
-    position: relative;
+header {
+    display: flex;
     width: 100%;
-    height: 80px;
-    background-color: black;
+    height: 150px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #158EBD 25%, #004660 125%);
     color: aliceblue;
 }
+
+#logo {
+    width: 100px;
+}
+
+.menu-container {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+ul:hover li:not(:hover) a {
+    opacity: 0.2;
+}
+ul li {
+    position: relative;
+    padding: 30px 25px 30px 25px;
+    cursor: pointer;
+}
+ul li::after {
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: orange;
+    transform: scaleX(0);
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+ul li:hover::after, ul li.active::after {
+    transform: scaleX(1);
+}
+ul li a {
+    position: relative;
+    display: flex;
+    color: white;
+    font-family: Lato, sans-serif;
+    text-decoration: none;
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.container{
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+
+
 
 /* ---- MOBILEFIRST ---- */
 
@@ -49,7 +106,16 @@ header{
     text-align: center;
 }
 
+
+
 /* ONGLETS MENU */
+
+.tab-content{
+
+    background-color: #004660;
+
+    margin: 1px;
+}
 
 div.tab-content div:not(:target) {
     display: none;
@@ -60,7 +126,17 @@ div.tab-content div:target {
 }
 
 .tab-content a{
-    background-color: blueviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: aliceblue;
+}
+
+.items{
+    height: 100%;
+    background-color: rgb(237, 240, 241);
 }
 
 /* -------------****---------- Responsive ------------*****------------  */
