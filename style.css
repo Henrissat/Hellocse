@@ -17,6 +17,14 @@ h1 {
     font-weight: bold;
     font-size: 1.8em;
 }
+h2 {
+    font-family: 'Roboto Condensed', sans-serif ;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 2vh;
+    color: orange;
+}
 p {
     font-family: 'roboto', sans-serif;
     font-size: 0.8em;
@@ -43,6 +51,20 @@ header {
 #logo {
     width: 100px;
 }
+
+
+.container{
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 5vh;
+}
+
+
+
+/* ---- MOBILEFIRST ---- */
+
+/* MENU */
 
 .menu-container {
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
@@ -85,19 +107,6 @@ ul li a {
     transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.container{
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-top: 5vh;
-}
-
-
-
-/* ---- MOBILEFIRST ---- */
-
-/* MENU */
-
 .menu{
     display:flex;
     width: 100%;
@@ -111,10 +120,7 @@ ul li a {
 /* ONGLETS MENU */
 
 .tab-content{
-
-    background-color: #004660;
-
-    margin: 1px;
+    height: 100%;
 }
 
 div.tab-content div:not(:target) {
@@ -125,18 +131,66 @@ div.tab-content div:target {
     display: block;
 }
 
-.tab-content a{
+.tab-content a {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
     color: aliceblue;
+    background: linear-gradient( #158EBD 25%, #004660 125%);
+    padding-top: 0.5rem;
+    margin: 1px;
+
+}
+
+.tab-content a:hover {
+    background: orange;
+}
+
+/*
+.tab-content>a:active, .tab-content>a:after {
+    content:"";
+    background: orange;
+}*/
+
+.current {
+    background: orange !important;
 }
 
 .items{
+    width: 100%;
     height: 100%;
+    margin: 0;
     background-color: rgb(237, 240, 241);
+    padding: 1rem;
+}
+
+.items img {
+    height: 200px;
+    width: 200px;
+    float: left;
+    border-radius: 50%;
+    shape-outside: circle();
+    border: 4px solid #FFF;
+    box-shadow: 2px 2px 10px 0 rgba(0,0,0,0.2);
+    margin: 0 30px 30px 0;
+}
+.img-star{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.angelina{
+    background-image: url("https://i.pinimg.com/originals/41/a8/ee/41a8ee131c1f98b09ca6ba9332017a96.jpg");
+}
+
+.megane{
+    background-image: url("https://fr-academic.com/pictures/frwiki/77/Megan_Fox_7.jpg");
+}
+
+.leonardo{
+    background-image: url("https://fr.web.img5.acsta.net/pictures/15/06/24/14/36/054680.jpg");
 }
 
 /* -------------****---------- Responsive ------------*****------------  */
@@ -150,5 +204,34 @@ div.tab-content div:target {
 /* ---- LARGER DEVICES ---- */
 
 @media only screen and (min-width: 1366px){
+    h2{
+        text-align: center;
+    }
+    .tab-content a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20vw;
+        color: aliceblue;
+        background: linear-gradient( #158EBD 25%, #004660 125%);
+        padding-top: 0.5rem;
+        margin: 1px;
+    }
+    .tab-content a::after {
+        background: orange;
+    }
+  
+    .items{
+        display: block;
+        position: absolute;
+        margin-top: -39px;
+        margin-bottom: 10vh;
+        left: 20vw;
+        width: 50vw;
+        max-width: 1000px;
+        min-height: 100%;
+        height: 60vh;
+        border: 1px solid #158EBD ;
+    }
 
 }
