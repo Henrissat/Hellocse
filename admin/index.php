@@ -14,12 +14,15 @@
     </head>
     <body class="bg-slate-100 ">
         <header class="">
-            <div><a href="../index.html"><img id="logo" src="https://www.hellocse.fr/images/logo_hellocse_white.svg" alt="logo" /></a><h1 class="h1">Admin Hellocse</h1></div>
+            <div>
+                <a href="../index.html"><img id="logo" src="https://www.hellocse.fr/images/logo_hellocse_white.svg" alt="logo" /></a>
+                <h1 class="h1">Admin Hellocse</h1>
+            </div>
         </header>
-        <div class="container mx-auto bg-white rounded-xl p-8 dark:bg-slate-800">
+        <div class="container mx-auto bg-white rounded-xl p-7 dark:bg-slate-800">
             <div class="row">
                 <h2 class="h2">Liste des stars</h2>
-                <a href="#" class="btn btn-success btn-lg w-40"><span class="glyphicon glyphicon-plus"></span>Ajouter</a>
+                <a href="#" class="add-btn btn btn-success btn-lg w-40"><span class="glyphicon glyphicon-plus"></span>Ajouter</a>
             </div>
             <table class="table table-striped table-bordered">
                 <thead>
@@ -30,6 +33,33 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
+                <tbody>
+
+                    <!-- connection à la base de données-->
+                    <?php
+                        require 'database.php';
+                        $db = Database::connect();
+                        $database = $db->query('SELECT stars.id, stars.name, stars.img, stars.description 
+                                                FROM stars
+                                                ORDER BY stars.id DESC')
+                                                or die(print_r($db->errorInfo()));
+                        while($star = $database->fetch())
+                        {
+                            echo '<tr>';
+                            echo '<td>' . $star['name'] . '</td>';
+                            echo '<td>' . $star['img'] . '</td>';
+                            echo '<td>' . $star['description'] . '</td>';
+                            echo '<td width=340>';
+                            echo '<a class="btn btn-secondary" href="view.php?id=' . $star['id'] . '"><span class="bi-eye"></span> Voir</a>';
+                            echo '<a class="btn btn-primary" href="update.php?id=' . $star['id'] . '"><span class="bi-pencil"></span> Modifier</a>';
+                            echo '<a class="btn btn-danger" href="delete.php?id=' . $star['id'] . '"><span class="bi-x"></span> Supprimer</a>';
+                            echo '</td>';
+                            echo '</tr>';
+                        }
+                        Database::disconnect();
+                    ?>
+
+                  </tbody>
             </table>
         </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>

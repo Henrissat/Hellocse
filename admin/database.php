@@ -17,10 +17,11 @@ class Database
         try
         {
             self::$connection = new PDO("mysql:host=" . self::$dbHost . ";dbname=" .self::$dbname,self::$dbUser,self::$dbUserPassword);
+            echo "success";
         }
         catch(PDOException $e)
         {
-            die($e->getMessage());
+            die($e->getMessage("Erreur connection base de données"));
         }
         return self::$connection;
     }
