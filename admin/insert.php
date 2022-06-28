@@ -3,9 +3,8 @@
     require 'database.php';
 
     //gérer les erreurs
-    $nameError = $descriptionErreur = $imgError = "";
-    if(!empty($_POST))
-    {
+    $nameError = $descriptionError = $imgError = "";
+    if(!empty($_POST)) {
         $name = checkInput($_POST["name"]);
         $description = checkInput($_POST["description"]);
         $img = checkInput($_FILES["img"]['name']);
@@ -14,24 +13,20 @@
         $isSuccess = true;
         $isUploadSuccess = false;
 
-        if(empty($name))
-        {
+        if(empty($name)) {
             $nameError = "Ce champ ne peut pas être vide";
             $isSuccess = false;
         }
-        if(empty($description))
-        {
+        if(empty($description)) {
             $descriptionError = "Ce champ ne peut pas être vide";
             $isSuccess = false;
         }
-        if(empty($img))
-        {
+        if(empty($img)) {
             $imgError = "Ce champ ne peut pas être vide";
             $isSuccess = false;
         }
         // gestion des formats des fichiers images et du poids
-        else
-        {
+        else {
             $isUploadSuccess = true;
             //format
             if($imgExtension != "jpg" && $imgExtension != "png" && $imgExtension != "jpeg" && $imgExtension != "gif" ) {
@@ -44,7 +39,7 @@
                 $isUploadSuccess = false;
             }
             //poid max
-            if($_FILES["image"]["size"] > 500000) {
+            if($_FILES["img"]["size"] > 500000) {
                 $imgError = "Le fichier ne doit pas depasser les 500KB";
                 $isUploadSuccess = false;
             }
@@ -105,16 +100,16 @@
             <form class="form" action="insert.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="underline leading-10 uppercase text-orange-500">Nom :</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Nom" value="<?php echo $name;?>">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nom" value="Nom de la star ici">
                     <!-- gestion des erreurs -->
                     <span class="erreur-form"><?php echo $nameError;?></span>
                 </div>
                 <br>
                 <div class="form-group">
                     <label class="underline leading-10 uppercase text-orange-500">Description :</label>
-                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="<?php echo $description; ?>">
+                    <input type="text" class="form-control" id="description" name="description" placeholder="Description" value="Description ici">
                     <!-- gestion des erreurs -->
-                    <span class="erreur-form"><?php echo $descriptionErreur; ?></span>
+                    <span class="erreur-form"><?php echo $descriptionError; ?></span>
                 </div>
                 <br>
                 <div class="form-group">

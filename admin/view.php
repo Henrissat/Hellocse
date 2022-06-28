@@ -66,7 +66,7 @@
                 </div>
                 <br>
                 <div class="form-group">
-                    <label class="underline leading-10 uppercase text-orange-500">Image :</label><img src="<?php echo ' ' . $stars['img']; ?>">
+                    <label class="underline leading-10 uppercase text-orange-500">Image :</label><img src="<?php echo '../images/' . $stars['img']; ?>">
                     </div>
             </form>
             <br>
