@@ -5,7 +5,6 @@
     margin: 2rem;
 }
 
-label{
-    font-weight: 800;
-    text-decoration: underline;
+.erreur-form{
+    color: red;
 }
