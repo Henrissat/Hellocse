@@ -17,7 +17,7 @@ class Database
         try
         {
             self::$connection = new PDO("mysql:host=" . self::$dbHost . ";dbname=" .self::$dbname,self::$dbUser,self::$dbUserPassword);
-            echo "success";
+            //echo "success";git 
         }
         catch(PDOException $e)
         {
